@@ -1,3 +1,4 @@
+import { removeSummaryDuplicates } from '@angular/compiler';
 import { Component,  } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
@@ -10,6 +11,8 @@ export class CarritoComponent  {
   // código, nombre, precio, cantidad, descripción 
   salida!: string;
   lista: any = [];
+  suma = 0;
+  total = 0;
   formulario = new FormGroup({
      
      producto: new FormGroup({
@@ -33,20 +36,21 @@ export class CarritoComponent  {
   eliminar(){
     this.lista.pop();
   }
-  pagar(){
-    let suma = 0;
-    let total = 0;
+
+  // NO me entro al For
+  // pagar(suma: number, total: number){
+  
     
-    for(let i = 1; i> this.lista.length; i++){   
-      suma = suma + (this.lista[i].precio.value * this.lista[i].cantidad.value); 
-      console.log(suma)
-      total = suma * 0.19;
+  //   for(let i = 1; i> this.lista.length; i++){   
+  //     suma = suma + (this.lista[i].precio.value * this.lista[i].cantidad.value); 
+  //     console.log(suma)
+  //     total = suma * 0.19;
       
-    }
-    console.log(suma)
-    console.log(total)
-    alert(total);
-  }
+  //   }
+  //   console.log(suma)
+  //   console.log(total)
+  //   alert('total a pagar: ' + total + this.lista.values);
+  // }
 
 
 }
