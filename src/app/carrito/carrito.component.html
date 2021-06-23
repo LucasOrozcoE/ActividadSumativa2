@@ -1,0 +1,65 @@
+
+<h1>Ingrese orden de compra </h1>
+<hr>
+<div class="col col-lg-12">
+        <!-- código, nombre, precio, cantidad, descripción -->
+
+<form [formGroup]="formulario" (ngSubmit)="agregar()">
+  
+    <table border="1" style="width: 100%; background-color: antiquewhite;">
+    <div formGroupName="producto" >
+        <p>Código del Producto:
+            <input type="text" formControlName="codigo" style="width: 100%;" placeholder="123EA4"  >
+        </p>
+        <p>Nombre producto:
+            <input type="text" formControlName="nombre" style="width: 100%; " placeholder="Tomate">
+        </p>
+        <p> Ingrese precio:
+            <input type="text" formControlName="precio" style="width: 100%;" placeholder="400">
+        </p>
+        <p> Ingrese cantidad de productos a llevar:
+            <input type="text" formControlName="cantidad" style="width: 100%;" placeholder="3">
+        </p>
+        <p> Ingrese descripcion del producto:
+            <input type="text" formControlName="descripcion" style="width: 100%;" placeholder="fruta">
+        </p>
+       
+       
+    </div>
+</table>
+<br>
+    <p>
+        <button type="submit" style="background-color: rgb(116, 195, 240)"   >Agregar producto</button>
+    </p>
+    
+</form>
+<!-- termino FORM -->
+<table class="table col-lg-12" >
+    <thead>
+        <!-- código, nombre, precio, cantidad, descripción -->
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">#</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of lista">
+            <td>{{producto.producto.codigo}}</td>
+            <td>{{producto.producto.nombre}}</td>
+            <td>{{producto.producto.precio}}</td>
+            <td>{{producto.producto.cantidad}}</td>
+            <td>{{producto.producto.descripcion}}</td>
+        <td> 
+            <button type="submit" style="background-color: rgb(240, 107, 107)" (click)="eliminar()" >Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2> Orden Lista! </h2>
+  <button type="submit" style="background-color: rgb(173, 255, 162)" (click)="pagar()" >Pagar</button>
+</div>
+<br>
